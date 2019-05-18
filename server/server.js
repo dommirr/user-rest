@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(require('./routes/index'));
 
-mongoose.connect('mongodb://localhost:27017/cafe', (err, res) => {
+mongoose.connect('mongodb+srv://dommirr:aika99.,@cluster0-f5igf.mongodb.net/instacats-dev?retryWrites=true', (err, res) => {
   if (err) throw err;
   console.log('Connect to Mongodb')
 })
