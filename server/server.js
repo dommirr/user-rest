@@ -8,7 +8,7 @@ let port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(require('./routes/user'));
+app.use(require('./routes/index'));
 
 mongoose.connect('mongodb://localhost:27017/cafe', (err, res) => {
   if (err) throw err;
