@@ -10,9 +10,6 @@ app.post('/login', (req, res) => {
 
   let body = req.body;
 
-  console.log(body);
-
-
   User.findOne({ email: body.email }, (err, userDB) => {
 
     if (err) {
@@ -51,7 +48,5 @@ app.post('/login', (req, res) => {
     });
   });
 });
-
-
 
 module.exports = app;
