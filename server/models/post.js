@@ -36,20 +36,25 @@ const Comments = new Schema({
   },
 });
 
-const Post = new Schema({
-  likes: {
-    type: Number,
-    required: true,
+const Post = new Schema(
+  {
+    likes: {
+      type: Number,
+      required: true,
+    },
+    status: {
+      type: Boolean,
+      default: true,
+    },
+    content: [Content],
+    user: User,
+    location: String,
+    comment: [Comments],
+    caption: String,
   },
-  status: {
-    type: Boolean,
-    default: true,
+  {
+    timestamps: true,
   },
-  content: [Content],
-  user: User,
-  location: String,
-  comment: [Comments],
-  caption: String,
-});
+);
 
 module.exports = mongoose.model('post', Post)
