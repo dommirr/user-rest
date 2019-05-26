@@ -3,10 +3,9 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
-var app = express();
+const app = express();
 
-
-app.post('/login', (req, res) => {
+app.post('/login', async (req, res) => {
 
   let body = req.body;
 
@@ -37,7 +36,7 @@ app.post('/login', (req, res) => {
       });
     }
 
-    let token = jwt.sign({
+    const token = jwt.sign({
       user: userDB,
     }, 'aika', { expiresIn: 60 * 60 * 24 * 30 });
 

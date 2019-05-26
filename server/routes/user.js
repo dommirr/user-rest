@@ -47,6 +47,7 @@ app.post('/user', async (req, res) => {
 
   let user = new User({
     name: body.name,
+    username: body.username,
     email: body.email,
     password: bcrypt.hashSync(body.password, 10),
     role: body.role

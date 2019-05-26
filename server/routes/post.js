@@ -21,7 +21,7 @@ app.post('/posts', async (req, res) => {
   if (!post) {
     return res.status(400).json({
       ok: false,
-      err: err
+      err: post.err
     });
   }
   res.json({
@@ -37,7 +37,7 @@ app.get('/posts', async (req, res) => {
   if (!posts) {
     return res.status(400).json({
       ok: false,
-      err: err
+      err: posts.err
     });
   }
 
