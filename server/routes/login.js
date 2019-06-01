@@ -38,7 +38,7 @@ app.post('/login', async (req, res) => {
 
     const token = jwt.sign({
       user: userDB,
-    }, 'aika', { expiresIn: 60 * 60 * 24 * 30 });
+    }, process.env.SEED, { expiresIn: process.env.CAR_TOKEN });
 
     res.json({
       ok: true,
