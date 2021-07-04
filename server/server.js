@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-var cors = require('cors');
+const cors = require('cors');
 
 require('./config/config');
 
@@ -17,11 +17,11 @@ app.use(require('./routes/index'));
 mongoose.connect(process.env.DEV, { useNewUrlParser: true });
 
 let db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', console.error.bind(console, 'connection error:')); // eslint-disable-line
 db.once('open', function () {
-  console.log('connect to mongodb');
+  console.log('connect to mongodb'); // eslint-disable-line
 });
 
 app.listen(port, () => {
-  console.log('Listen on port ', port);
+  console.log('Listen on port ', port); // eslint-disable-line
 });

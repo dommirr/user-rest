@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
+    "chai": "^4.2.0",
     "eslint": "^5.16.0",
     "nodemon": "^1.19.4"
   },
@@ -20,7 +21,8 @@
   "scripts": {
     "start": "nodemon server/server.js",
     "dev": "nodemon server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./server/**/*.test.js",
+    "lint": "./node_modules/.bin/eslint server --ext .js"
   },
   "author": "",
   "license": "ISC",
