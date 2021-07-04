@@ -12,13 +12,13 @@
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
-    "nodemon": "^1.19.0"
+    "nodemon": "^1.19.4"
   },
   "name": "user",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "nodemon server/server.js",
     "dev": "nodemon server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

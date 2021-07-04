@@ -1,5 +1,6 @@
 {
   "extends": "eslint:recommended",
+  "no-console": false,
   "parserOptions": {
     "ecmaVersion": 2017
   },

@@ -8,13 +8,13 @@ const app = express();
 
 app.get('/users', verifyToken, async (req, res) => {
   try {
-    let desde = req.query.desde || 0;
-    let limite = req.query.limite || 5;
-    desde = Number(desde);
-    limite = Number(limite);
+    let from = req.query.from || 0;
+    let limit = req.query.limit || 5;
+    from = Number(from);
+    limit = Number(limit);
 
     const counter = await User.count({ status: true });
-    const users = await User.find({ status: true }).skip(desde).limit(limite);
+    const users = await User.find({ status: true }).skip(from).limit(limit);
 
     res.json({
       ok: true,
@@ -43,29 +43,28 @@ app.get('/user/:id', verifyToken, async (req, res) => {
     return res.status(400).json({
       ok: false,
       err: {
-        message: "Usuario no existe."
+        message: "User does not exist."
       }
     });
   }
 });
 
 app.get('/user/profile/:username', verifyToken, async (req, res) => {
-  try {
-    const { username } = req.params;
-    const user = await User.findOne({ username });
-    res.json({
-      ok: true,
-      user
-    });
-  }
-  catch (err) {
+  const { username } = req.params;
+  const Username = await User.findOne({ username });
+
+  if (!Username) {
     return res.status(400).json({
       ok: false,
       err: {
-        message: "Usuario no existe."
+        message: "User does not exist."
       }
     });
   }
+  res.json({
+    ok: true,
+    username: Username
+  });
 });
 
 app.post('/user', async (req, res) => {
@@ -108,7 +107,7 @@ app.put('/user/:id', verifyToken, async (req, res) => {
     return res.status(400).json({
       ok: false,
       err: {
-        message: "Usuario no existe."
+        message: err.message,
       }
     });
   }

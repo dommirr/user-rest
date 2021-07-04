@@ -22,7 +22,7 @@ app.post('/login', async (req, res) => {
       return res.status(400).json({
         ok: false,
         err: {
-          message: "Usuario o contraseña incorrectos"
+          message: "Invalid username or password"
         }
       });
     }
@@ -31,7 +31,7 @@ app.post('/login', async (req, res) => {
       return res.status(400).json({
         ok: false,
         err: {
-          message: "Usuario o contraseña incorrectos"
+          message: "Invalid username or password"
         }
       });
     }
